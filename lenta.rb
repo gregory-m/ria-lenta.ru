@@ -1,14 +1,12 @@
-require 'sinatra'
+require 'bundler/setup'
+Bundler.require(:default)
+require './feeds_updater'
 
-require 'rss'
-require 'open-uri'
-require 'feedzirra'
-
+set :cache, Dalli::Client.new
+FeedsUpdater.update
 
 get '/' do
-  url = 'http://ria.ru/export/rss2/politics/index.xml'
-  feed = Feedzirra::Feed.fetch_and_parse(url)
-  @articles = feed.entries
+  @articles = settings.cache.get("politcis")
 
   erb :index
 end
