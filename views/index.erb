@@ -169,8 +169,8 @@
 <section class="row b-top7-for-main">
 <div class="span4">
   <%
-    @feature = @articles.select{|a| a.enclosure_url}.first
-    @articles.delete(@feature)
+    @feature = @feeds["politics"].entries.select{|a| a.enclosure_url}.first
+    @feeds["politics"].entries.delete(@feature)
   %>
 <div class="first-item">
 <a href="<%= @feature.url %>" class="js-dh"><img alt="Галина Тимченко" class="g-picture" height="200" src="<%= @feature.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
@@ -187,8 +187,8 @@
 </div>
 <div class="span4">
 <div class="items">
-
-  <% @articles[0..6].each do |article|%>
+  
+  <% @feeds["politics"].entries[0..6].each do |article|%>
     <div class="item">
       <time class="g-time" datetime="<%= article.published%>" title="12 марта 2014"><%= article.published.strftime("%H:%M") %></time>
       <a href="<%= article.url %>"><%= article.title%></a>
@@ -619,419 +619,90 @@
 
 <section class="b-tabloid">
 <div class="g-layout">
+<% rows = @feeds.to_a[1..6] %>
+<% titles = {
+  'world' => "В Мире", 
+  'economy' => "Экономика", 
+  'science' => "Наука и техника", 
+  'sport' => "Спорт", 
+  'culture' => "Культура", 
+  'eco' => "Экология" 
+}
+%>
+
+
+
 <div class="b-tabloid__row row">
+<% rows[0..2].each do | row |%>
+
 <div class="span4">
 <div class="b-tabloid__item">
 <h2 class="bordered-title">
-<a href="/rubrics/russia/">Россия</a>
+<a href="/rubrics/economics/"><%= titles[row[0]]%></a>
 </h2>
+<% row[1].entries[0..6].each do |article|%>
+<% if article.enclosure_url%>
+
+
 <div class="b-tabloid__topic">
-<a href="/news/2014/03/12/vitko/">Минобороны РФ назвало провокацией дело против главы ЧФ </a>
+<a href="<%= article.url %>" class="js-dh"><img alt="" class="g-picture" height="64" src="<%= article.enclosure_url %>" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a>
+<div class="rightcol"><a href="<%= article.url %>"><%= article.title %></a></div>
 </div>
+<% else %>
 <div class="b-tabloid__topic">
-<a href="/news/2014/03/12/saratov/">В Саратове посадили «папарацци» из фитнес-клуба</a>
+<a href="<%= article.url %>"><%= article.title %></a>
 </div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/sk/">СК возбудил дело за уголовное преследование командующего ЧФ</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/lebedev/">Константин Лебедев рассказал о российском «микромайдане»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/yarosh/">Московский суд заочно арестовал лидера «Правого сектора»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/sovfed/">В Совете Федерации появятся президентские сенаторы</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/unite1/">СК объединил дела об угрозах российским губернаторам</a>
-</div>
+
+
+
+<% end %>
+<% end %>
+
 </div>
 <div class="b-tabloid__more">
-<a href="/rubrics/russia/">Все материалы</a>
+<a href="<%= row[1].url%>">Все материалы</a>
 </div>
 </div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/world/">Мир</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/bill/">Сенат США подготовил законопроект о санкциях против российских чиновников</a>
+<% end %>
 </div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/surveillance/">НАТО объявило о начале разведывательной миссии у границ Украины</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/explosion/">На Манхэттене взорвался жилой дом</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/newpoint/">Малайзийские ВВС подтвердили новые данные о пропавшем «Боинге»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/cameron/">Британский премьер предложил санкции для российских законодателей</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/vote/">Кнессет принял закон о призыве ортодоксов в армию</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/door/">Простреленную Писториусом дверь предъявили суду</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/world/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/ussr/">Бывший СССР</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/12/mirimanova/" class="js-dh"><img alt="Рабочий устанавливает баннер в окрестностях Симферополя, 11 марта 2014 года" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/12/15/20140312150755277/tabloid_cfdd2a2a17bc78acde5dc7aa07a94633.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/12/mirimanova/" class="article js-dh">«Крым — это культура компромисса»</a>
-<div class="rightcol">Интервью с Наталией Миримановой — экспертом по разрешению конфликтов</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/lithuania/">В Литве потребовали наказать инициаторов отделения Клайпеды</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/disprove/">Минобороны Украины опровергло перевод главной базы ВМС в Одессу</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/guard/">Крымская самооборона взяла под охрану избирательные участки</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/karimova/">Швейцарская прокуратура отчиталась о расследовании против Гульнары Каримовой</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/refuse/">Еврокомиссар отказался от поста премьера Эстонии</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/dismiss/">Командующий ВМС Азербайджана отправлен в отставку</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/ussr/">Все материалы</a>
-</div>
-</div>
-</div>
+
+
 <div class="b-tabloid__row row">
+<% rows[3..5].each do | row |%>
+
 <div class="span4">
 <div class="b-tabloid__item">
 <h2 class="bordered-title">
-<a href="/rubrics/economics/">Экономика</a>
+<a href="/rubrics/economics/"><%= titles[row[0]]%></a>
 </h2>
+<% row[1].entries[0..6].each do |article|%>
+<% if article.enclosure_url%>
+
+
 <div class="b-tabloid__topic">
-<a href="/news/2014/03/12/programme/">Украина ограничила антикризисную программу 100 днями</a>
+<a href="<%= article.url %>" class="js-dh"><img alt="" class="g-picture" height="64" src="<%= article.enclosure_url %>" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a>
+<div class="rightcol"><a href="<%= article.url %>"><%= article.title %></a></div>
 </div>
+<% else %>
 <div class="b-tabloid__topic">
-<a href="/news/2014/03/12/krym/">Крым национализирует железные дороги и нефтяные вышки</a>
+<a href="<%= article.url %>"><%= article.title %></a>
 </div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/comments/">Vimpelcom прокомментировал открытое в США расследование</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/license/">«Роснефть» проиграла своему бывшему президенту участки на Таймыре</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/mosgortrans/">В «Мосгортрансе» опровергли предоставление преференций «ГАЗу»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/gas/">Украина частично оплатила купленный в феврале российский газ</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/10/goldprices/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/10/15/20140310153952606/tabloid_c48627f7cde5dd61bbff838ce12c9dfd.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/10/goldprices/" class="article js-dh">Драгметалл в голосе</a>
-<div class="rightcol">Банкиров обвинили в махинациях с ценами на золото</div>
-</div>
+
+
+
+<% end %>
+<% end %>
+
 </div>
 <div class="b-tabloid__more">
-<a href="/rubrics/economics/">Все материалы</a>
+<a href="<%= row[1].url%>">Все материалы</a>
 </div>
 </div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/science/">Наука и техника</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/11/mic/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/10/16/20140310165415305/tabloid_5f5dfa3f39138d3e73c6f33c706d7c5e.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/11/mic/" class="article js-dh">«Феноменальная механическая добротность»</a>
-<div class="rightcol">Юджин Ползик об оптическом микрофоне и его уникальных свойствах</div>
+<% end %>
 </div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/rainbow/">Астрономы впервые засняли внеземную радугу</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/tiltor/">Владельцам смартфонов предложили плату за усмирение беспорядков</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/carrier/">Бразилия построит новый авианосец</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/paid/">Россия потеряла на неудачных запусках ракет 20 миллиардов рублей</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/olpcvse/">СМИ сообщили о закрытии проекта One Laptop Per Child</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/10/ddr/" class="js-dh"><img alt="КПП «Чарли», ставший символом противостояния Запада и Востока в годы «холодной войны». 13 мая 1996 года" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/10/14/20140310141543901/tabloid_89180c82357b58726a0f18958677adac.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/10/ddr/" class="article js-dh">Гомункулус советикус</a>
-<div class="rightcol">«31 спорный вопрос» русской истории: кто и зачем развязал «холодную войну»</div>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/science/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/sport/">Спорт</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/12/zavarzinawild/" class="js-dh"><img alt="Алена Заварзина и Вик Уайлд" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/12/15/20140312150325998/tabloid_0c39893ecf7af31be48d977cdfc182f9.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/12/zavarzinawild/" class="article js-dh">«Это круче, чем просто спорт»</a>
-<div class="rightcol">«Лента.ру» поговорила с Аленой Заварзиной и Виком Уайлдом — идеальной парой сочинской Олимпиады</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/biathlon/">Объявлен конкурс на замещение должностей тренеров сборных России по биатлону</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/boas/">«Зенит» предложил контракт бывшему тренеру «Челси»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/mutko/">Мутко объявил о срыве сроков проектирования стадионов ЧМ-2018</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/spalletti/">Спаллетти решил жить в Санкт-Петербурге</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/malkin/">Малкин признал несовместимость с Овечкиным на Олимпиаде</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/11/spalletti/" class="js-dh"><img alt="Лучано Спаллетти" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/11/16/20140311165939332/tabloid_838a212700ad35ee5d780c368a851f5b.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/11/spalletti/" class="article js-dh">Давно пора</a>
-<div class="rightcol">Лучано Спаллетти уволен из «Зенита»</div>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/sport/">Все материалы</a>
-</div>
-</div>
-</div>
-<div class="b-tabloid__row row">
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/culture/">Культура</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/12/southpark/" class="js-dh"><img alt="Скриншот из игры  «South Park: Палка Истины»" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/12/13/20140312131147248/tabloid_4bda90a463ee27c29d89db1f495b3870.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/12/southpark/" class="article js-dh">Сегодня мы многое поняли</a>
-<div class="rightcol">Великий маг и сиськи принцессы Кенни. Вышла игра про «Южный парк»</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/neil/">Нил Янг за сутки собрал миллион долларов на новый сервис</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/babushki/">Письмо в поддержку политики Путина в Крыму подписали более 100 деятелей культуры</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/flappy/">Создатель Flappy Bird задумался о ее возвращении</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/hendrix/">О Джими Хендриксе снимут первый одобренный наследниками фильм</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/refuse1/">Профессор Гнесинки признал себя подписантом обращения по Крыму</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/10/kuznetsov/" class="js-dh"><img alt="Анатолий Кузнецов в роли Сухова" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/10/11/20140310113039853/tabloid_b8628a17bac59d3545f084b531fd8c8e.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/10/kuznetsov/" class="article js-dh">Под солнцем Сухова</a>
-<div class="rightcol">Памяти Анатолия Кузнецова</div>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/culture/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/media/">Интернет и СМИ</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/goreslavsky/">В «Ленте.ру» сменился главный редактор</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/conancoin/">Американский ведущий взял интервью у «фейкового» эксперта по биткоинам</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/oktube/">«Одноклассники» покажут программы «Ю» и шоу RuTube</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/ukraine/">Часть украинских провайдеров отказались отключать российские каналы</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/pravysektor/">Роскомнадзор вынес предупреждение «Ленте.ру» из-за интервью с «Правым сектором»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/crazyfonts/">Google обновил внешний вид поисковой выдачи</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/imhoclub/">Google потребовал от латвийского сайта удалить «антибандеровскую» статью</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/media/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title">
-<a href="/rubrics/life/">Из жизни</a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/overexposed/">Джастин Бибер возглавил список примелькавшихся знаменитостей</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/museum/">На Урале решили открыть музей старых мобильников </a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/beer/">После укуса ядовитой змеи австралиец уселся пить пиво </a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/nuts/">Житель Пакистана расколол головой 155 орехов за минуту</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/12/love/">В Японии придумали выдавать «сертификаты любви»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/news/2014/03/11/tape/">Учительница случайно показала школьникам домашнее порно </a>
-</div>
-<div class="b-tabloid__topic">
-<a href="/articles/2014/03/07/haul/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/07/12/20140307120637611/tabloid_68d475f3f4b3508258bd9453afaf5944.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="/articles/2014/03/07/haul/" class="article js-dh">Вклад «Под деревом»</a>
-<div class="rightcol">В Калифорнии найдены монеты стоимостью 10 миллионов долларов</div>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/life/">Все материалы</a>
-</div>
-</div>
-</div>
-<div class="b-tabloid__row row">
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title" style="border-top-color: black">
-<a href="/rubrics/motor/" class="icons-sprite icons-logo_motor"></a>
-<a href="http://motor.ru" class="outer_link icons-sprite icons-outer_link" target="_blank"></a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/articles/2014/03/11/f1prev2014/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/11/14/20140311143810876/tabloid_424d0fd3ba8f67616f887b5b0d4265d6.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://motor.ru/articles/2014/03/11/f1prev2014/" class="article js-dh">Смешали и взболтали</a>
-<div class="rightcol">В Формуле-1 стартует один из самых непредсказуемых сезонов</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/news/2014/03/12/stealit/">Страховщики назвали любимые города российских угонщиков</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/articles/2014/03/10/advertfeb/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/10/09/20140310094513688/tabloid_4a1f635e3fa70f0fd5b0245847de6073.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://motor.ru/articles/2014/03/10/advertfeb/" class="article js-dh">Масло и лошади</a>
-<div class="rightcol">Лучшая автомобильная реклама февраля</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/news/2014/03/12/nextfive/">Jaguar выпустит пять новинок за пять лет</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/articles/2014/03/07/sidemoon/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/07/11/20140307111315109/tabloid_fa8a54d58e86a655d02a98c417214bef.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://motor.ru/articles/2014/03/07/sidemoon/" class="article js-dh">Катюша и ее друзья</a>
-<div class="rightcol">Самые необычные машины Женевского автошоу</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/news/2014/03/12/salesfeb/">Ford Focus потерял почти половину российских покупателей</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://motor.ru/news/2014/03/12/checkit/">Москва создала сервис для проверки истории автомобилей</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/motor/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title" style="border-top-color: #9a8f7c">
-<a href="/rubrics/realty/" class="icons-sprite icons-logo_dom"></a>
-<a href="http://dom.lenta.ru" class="outer_link icons-sprite icons-outer_link" target="_blank"></a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/photo/2014/03/07/pont/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/06/15/20140306151434697/tabloid_68a652c044280a25fec7646de7e7b3ae.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://dom.lenta.ru/photo/2014/03/07/pont/" class="article js-dh">Понты на воде</a>
-<div class="rightcol">Самые красивые дома-мосты мира</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/news/2014/03/12/ahmat/">Объявлены сроки строительства 400-метровой башни «Ахмат»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/photo/2014/03/05/office/" class="js-dh"><img alt="Переговорная в офисе компании Enter Связной" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/05/14/20140305141629663/tabloid_00f0962cf24989dd5b8276476d8da130.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://dom.lenta.ru/photo/2014/03/05/office/" class="article js-dh">Купчиха с Винной улицы</a>
-<div class="rightcol">Пространства: офис компании «Enter Связной»</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/news/2014/03/12/noshareholders/">В правительстве задумались об отказе от долевого строительства</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/articles/2014/03/05/studio/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://icdn.lenta.ru/images/2014/03/05/16/20140305164450793/tabloid_d86408e2920a1b199b34983892f26c6d.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
-</a><a href="http://dom.lenta.ru/articles/2014/03/05/studio/" class="article js-dh">Без лишних стен</a>
-<div class="rightcol">Сколько стоят московские квартиры-студии</div>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/news/2014/03/11/fort/">В Венеции выставили на продажу форт времен Наполеона</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://dom.lenta.ru/news/2014/03/11/pivzavod/">Мэрия определилась с застройкой Бадаевского пивзавода</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/realty/">Все материалы</a>
-</div>
-</div>
-<div class="span4">
-<div class="b-tabloid__item">
-<h2 class="bordered-title" style="border-top-color: #ed2123">
-<a href="/rubrics/mednovosti/" class="icons-sprite icons-logo_mednovosti"></a>
-<a href="http://medportal.ru" class="outer_link icons-sprite icons-outer_link" target="_blank"></a>
-</h2>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/12/062abdomen/">Жительница Танзании успешно выносила дочь в брюшной полости</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/12/057nasa/">Влияние космоса на здоровье оценят с помощью астронавтов-близнецов</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/11/055resound/">iPhone научили управлять слуховым аппаратом</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/11/045wakayama/">Революционный способ получения стволовых клеток перепроверят</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/11/052five/">Британские студенты научно подтвердили «правило пяти секунд»</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/11/048pay/">Кабмин отчитался о росте зарплат российских медиков</a>
-</div>
-<div class="b-tabloid__topic">
-<a href="http://medportal.ru/mednovosti/news/2014/03/07/030zincfinger/">Для лечения ВИЧ-инфицированных успешно применили «цинковые пальцы»</a>
-</div>
-</div>
-<div class="b-tabloid__more">
-<a href="/rubrics/mednovosti/">Все материалы</a>
-</div>
-</div>
-</div>
+
 </div>
 </section>
 
