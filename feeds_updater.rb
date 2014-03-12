@@ -8,7 +8,8 @@ FEEDS = [
   {name: 'science', url: 'http://ria.ru/export/rss2/science/index.xml'},
   {name: 'sport', url: 'http://sport.ria.ru/export/rss2/sport/index.xml'},
   {name: 'culture', url: 'http://ria.ru/export/rss2/culture/index.xml'},
-  {name: 'eco', url: 'http://eco.ria.ru/export/rss2/eco/index.xml'}
+  {name: 'culture', url: 'http://ria.ru/export/rss2/culture/index.xml'},
+  {name: 'incidents', url: 'http://ria.ru/export/rss2/incidents/index.xml'}
 ]
 
 class FeedsUpdater

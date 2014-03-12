@@ -5,7 +5,7 @@ require './feeds_updater'
 set :cache, Dalli::Client.new
 FeedsUpdater.update
 
-set :feeds_names, ['politics', 'world', 'economy', 'science', 'sport', 'culture', 'eco']
+set :feeds_names, ['politics', 'world', 'economy', 'science', 'sport', 'culture', 'eco', 'incidents']
 
 get '/' do
   @feeds = {}

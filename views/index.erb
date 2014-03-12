@@ -198,7 +198,7 @@
 
   <div class="article item">
   <div class="info g-date">
-  <a href="/rubrics/culture/" class="rubric">В мире</a>
+  <a href="/rubrics/world/" class="rubric">В мире</a>
   &mdash;
   <span class="g-date"><span class="time">18:42</span> Сегодня</span>
   </div>
@@ -241,7 +241,7 @@
 
     <div class="article item">
     <div class="info g-date">
-    <a href="/rubrics/culture/" class="rubric">Экономика</a>
+    <a href="/rubrics/economy/" class="rubric">Экономика</a>
     &mdash;
     <span class="g-date"><span class="time">18:42</span> Сегодня</span>
     </div>
@@ -281,31 +281,15 @@
 <section class="b-yellow-box">
 <div class="b-yellow-box__wrap">
 <h2 class="bordered-title">Главное за сутки</h2>
+<% @feeds["incidents"].entries[0..5].each do |article| %>
+
 <div class="item">
 <time class="g-time" datetime=" 12:11, 12 марта 2014" title="12 марта 2014">12:11</time>
 
-<a href="/news/2014/03/12/pravysektor/">Роскомнадзор вынес предупреждение «Ленте.ру» из-за интервью с «Правым сектором»</a>
+<a href="<%= article.url%>"><%= article.title %></a>
 </div>
-<div class="item">
-<time class="g-time" datetime=" 14:57, 12 марта 2014" title="12 марта 2014">14:57</time>
+<% end %>
 
-<a href="/news/2014/03/12/babushki/">Письмо в поддержку политики Путина в Крыму подписали более 100 деятелей культуры</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 15:32, 12 марта 2014" title="12 марта 2014">15:32</time>
-
-<a href="/news/2014/03/12/cameron/">Британский премьер предложил санкции для российских законодателей</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 16:54, 12 марта 2014" title="12 марта 2014">16:54</time>
-
-<a href="/news/2014/03/12/sk/">СК возбудил дело за уголовное преследование командующего ЧФ</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 13:10, 12 марта 2014" title="12 марта 2014">13:10</time>
-
-<a href="/news/2014/03/12/duma/">Дума собрала группу наблюдателей за референдумом в Крыму</a>
-</div>
 </div>
 </section>
 
