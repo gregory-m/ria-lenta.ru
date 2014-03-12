@@ -93,22 +93,8 @@
 <div class="span6">
 <div class="b-ears__item b-ears__item_no-picture">
 <div class="b-ears__item__wrap">
-<div class="info">
-<div class="type"><a href="/rubrics/russia/">Россия</a></div>
-<h3><a href="/articles/2014/03/11/vikarij/" class="js-dh">Зачем ты меня убила?</a></h3>
-<div class="rightcol">Персонажи книги о сельской глубинке засудили автора: репортаж «Ленты.ру»</div>
-</div>
-</div>
-</div>
-</div>
-<div class="span6">
-<div class="b-ears__item b-ears__item_no-picture">
-<div class="b-ears__item__wrap">
-<div class="info">
-<div class="type"><a href="/rubrics/ussr/">Бывший СССР</a></div>
-<h3><a href="/articles/2014/03/10/tatar/" class="js-dh">Они придумали Крым</a></h3>
-<div class="rightcol">Татарско-турецкий фактор в судьбе полуострова</div>
-</div>
+
+
 </div>
 </div>
 </div>
@@ -202,7 +188,7 @@
   &mdash;
   <span class="g-date"><span class="time">18:42</span> Сегодня</span>
   </div>
-  <a href="<% article.url %>" class="js-dh picture"><img alt="<% article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+  <a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
   </a>
   <div class="titles">
   <h3>
@@ -231,6 +217,7 @@
 
 </section>
 </div>
+
 <div class="span4">
   <section class="b-longgrid-column">
   
@@ -245,7 +232,7 @@
     &mdash;
     <span class="g-date"><span class="time">18:42</span> Сегодня</span>
     </div>
-    <a href="<% article.url %>" class="js-dh picture"><img alt="<% article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+    <a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
     </a>
     <div class="titles">
     <h3>
@@ -403,11 +390,11 @@
 &mdash;
 <span class="g-date"><span class="time">18:42</span> Сегодня</span>
 </div>
-<a href="<% article.url %>" class="js-dh picture"><img alt="<% article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; max-height: 200px;"/>
+<a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; max-height: 200px;"/>
 </a>
 <div class="titles">
 <h3>
-<a href="<% article.url %>"><span><%= article.title %></span>
+<a href="<%= article.url %>"><span><%= article.title %></span>
 </a></h3>
 <div class="rightcol"><%= article.summary %></div>
 </div>
@@ -422,7 +409,7 @@
 </div>
 <div class="titles">
 <h3>
-<a href="<% article.url %>"><%= article.title %></a>
+<a href="<%= article.url %>"><%= article.title %></a>
 </h3>
 </div>
 </div>

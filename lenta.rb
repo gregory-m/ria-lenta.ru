@@ -20,6 +20,13 @@ end
 
 get '/rubrics/:name/' do
 
+  @feeds = {}
+
+
+  settings.feeds_names.each do |feed_name|
+    @feeds[feed_name] = settings.cache.get(feed_name)
+  end
+  
   if settings.feeds_names.include?(params[:name])
     @feed = settings.cache.get(params[:name])
     erb :rubric
