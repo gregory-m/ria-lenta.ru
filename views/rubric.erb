@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"jserror.newrelic.com","licenseKey":"66a8d51230","applicationID":"1241738","transactionName":"J19cQUoOWA0ERBoWRAZCW1ZLTkcJDkE=","queueTime":0,"applicationTime":55,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-356.min.js"}</script>
-<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function a(b,c,d){function e(f){if(!c[f]){var g=c[f]={exports:{}};b[f][0].call(g.exports,function(a){var c=b[f][1][a];return e(c?c:a)},g,g.exports,a,b,c,d)}return c[f].exports}for(var f=0;f<d.length;f++)e(d[f]);return e}({"4O2Y62":[function(a,b){function c(a,b){var c=d[a];return c?c.apply(this,b):(e[a]||(e[a]=[]),void e[a].push(b))}var d={},e={};b.exports=c,c.queues=e,c.handlers=d},{}],handle:[function(a,b){b.exports=a("4O2Y62")},{}],YLUGVp:[function(a,b){function c(){var a=m.info=NREUM.info;if(a&&a.agent&&a.licenseKey&&a.applicationID){m.proto="https"===l.split(":")[0]||a.sslForHttp?"https://":"http://",g("mark",["onload",f()]);var b=i.createElement("script");b.src=m.proto+a.agent,i.body.appendChild(b)}}function d(){"complete"===i.readyState&&e()}function e(){g("mark",["domContent",f()])}function f(){return(new Date).getTime()}var g=a("handle"),h=window,i=h.document,j="addEventListener",k="attachEvent",l=(""+location).split("?")[0],m=b.exports={offset:f(),origin:l,features:[]};i[j]?(i[j]("DOMContentLoaded",e,!1),h[j]("load",c,!1)):(i[k]("onreadystatechange",d),h[k]("onload",c)),g("mark",["firstbyte",f()])},{handle:"4O2Y62"}],loader:[function(a,b){b.exports=a("YLUGVp")},{}]},{},["YLUGVp"]);</script>
-
-<title>Lenta.ru: Экономика</title>
+  <% titles = {
+    'world' => "В Мире", 
+    'economy' => "Экономика", 
+    'science' => "Наука и техника", 
+    'sport' => "Спорт", 
+    'culture' => "Культура", 
+    'eco' => "Экология" 
+  }
+  %>
+<title>RIA Lenta.ru: <%= titles[params[:name]]%></title>
 <link href="http://icdn.lenta.ru/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <link href="http://icdn.lenta.ru/lenta_touch.png" rel="apple-touch-icon" type="image/png" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -36,86 +42,51 @@
 </head>
 <body>
 <div class="g-application" id="root">
-<section class="b-banner-top-decorator js-advert"><script type="text/javascript">
-  <!--
-  if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
-  if (typeof(document.referrer) != 'undefined') {
-    if (typeof(afReferrer) == 'undefined') {
-      afReferrer = escape(document.referrer);
-    }
-  } else {
-    afReferrer = '';
-  }
-  var addate = new Date();
-  
-  var scrheight = '', scrwidth = '';
-  if (self.screen) {
-  scrwidth = screen.width;
-  scrheight = screen.height;
-  } else if (self.java) {
-  var jkit = java.awt.Toolkit.getDefaultToolkit();
-  var scrsize = jkit.getScreenSize();
-  scrwidth = scrsize.width;
-  scrheight = scrsize.height;
-  }
-  
-  var dl = escape(document.location);
-  var pr1 = Math.floor(Math.random() * 1000000);
-  
-  document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
-  document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
-  
-  AdFox_getCodeScript(1,pr1,'http://ads.adfox.ru/171817/prepareCode?p1=bmdxv&amp;p2=ewtn&amp;pct=c&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;puid1=&amp;puid2=&amp;puid3='+_montblanc.get('4i', '')+'&amp;puid4='+_montblanc.get('c6', '')+'&amp;puid5=&amp;puid6=ECONOMICS&amp;puid7=&amp;puid8=&amp;puid9=&amp;puid10=&amp;puid11=&amp;puid12=&amp;puid13=&amp;puid14=&amp;puid15=0&amp;puid16=&amp;puid17=&amp;puid18=main&amp;puid19=&amp;puid20=&amp;puid21=&amp;puid22='+_montblanc.get('y1', '')+'&amp;puid23=&amp;puid24=&amp;puid25=&amp;puid26=&amp;puid27=&amp;puid28=&amp;puid29=&amp;puid30=&amp;puid31=&amp;puid32=&amp;puid33='+_montblanc.get('bj', '')+'&amp;puid34=&amp;puid35=&amp;pdw=' + scrwidth + '&amp;pdh=' + scrheight + '&amp;dl='+dl+'&amp;pr1='+pr1);
-  // -->
-</script></section>
 
-<nav class="b-sidebar-menu">
-<div class="mini" id="menu-toggler">
-<div class="toggler icons-sprite icons-menu_toggler"></div>
-</div>
-<div class="origin b-menu-decorator" id="sidebar-menu">
-<div class="b-sidebar-menu__wrap">
-<ul>
-<li class="delimiter">
-<div></div>
-</li>
-<li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
 
-<% titles = {
-  'world' => "В Мире", 
-  'economy' => "Экономика", 
-  'science' => "Наука и техника", 
-  'sport' => "Спорт", 
-  'culture' => "Культура", 
-  'eco' => "Экология" 
-}
-%>
-<% titles.each do |title, name| %>
-<li class="special"><a href="/rubrics/<%= title %>/" style="color: #ffffff"><%= name%></a></li>
-<% end %>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="http://parasochi.lenta.ru/" style="color: #ffffff">Игры без преград</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="http://motor.ru/" style="color: #959595">Мотор</a></li>
-<li><a href="http://dom.lenta.ru/" style="color: #959595">Дом</a></li>
-<li><a href="http://medportal.ru/mednovosti/" style="color: #959595">МедНовости</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-</ul>
-<div class="b-sidebar-menu__fuck icons-sprite icons-fuck"></div>
-<div class="b-sidebar-menu__under-fuck icons-sprite icons-under_fuck"></div>
-<form action="/search" class="search" method="GET">
-<input name="query" placeholder="Поиск" type="text">
-<i class="icons-sprite icons-search" onclick="$(this).closest('form').submit()"></i>
-</form>
-</div>
-</div>
-</nav>
+
+  <nav class="b-sidebar-menu">
+  <div class="mini" id="menu-toggler">
+  <div class="toggler icons-sprite icons-menu_toggler"></div>
+  </div>
+  <div class="origin b-menu-decorator" id="sidebar-menu">
+  <div class="b-sidebar-menu__wrap">
+  <ul>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
+
+  <% titles = {
+    'world' => "В Мире", 
+    'economy' => "Экономика", 
+    'science' => "Наука и техника", 
+    'sport' => "Спорт", 
+    'culture' => "Культура", 
+    'eco' => "Экология" 
+  }
+  %>
+  <% titles.each do |title, name| %>
+  <li class="special"><a href="/rubrics/<%= title %>/" style="color: #ffffff"><%= name%></a></li>
+  <% end %>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li><a href="http://parasochi.lenta.ru/" style="color: #ffffff">Игры без преград</a></li>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li><a href="http://motor.ru/" style="color: #959595">Мотор</a></li>
+  <li><a href="http://dom.lenta.ru/" style="color: #959595">Дом</a></li>
+  <li><a href="http://medportal.ru/mednovosti/" style="color: #959595">МедНовости</a></li>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  </ul>
+
+  </div>
+  </div>
+  </nav>
 
 <div class="b-up icons-sprite icons-up" id="up" title="наверх"></div>
 <section class="b-header-inner">
@@ -123,7 +94,7 @@
 <div class="b-header-inner__wrap">
 <a class="b-header-inner__logo icons-sprite icons-lenta_small" href="/"></a>
 <div class="b-header-inner__info">
-<a href="/rubrics/economics/" class="b-header-inner__block">Экономика</a>
+<a href="/rubrics/<%= params[:name]%>/" class="b-header-inner__block"><%= titles[params[:name]]%></a>
 <div class="date" id="date-time">&nbsp;</div>
 </div>
 </div>
@@ -134,21 +105,24 @@
 
 
 
-
+  <%
+    @feature = @feed.entries.select{|a| a.enclosure_url}.first
+    @feed.entries.delete(@feature)
+  %>
 <section class="b-layout b-layout_rubric">
 <div class="g-layout">
 <div class="row">
 <div class="span8">
 <section class="b-feature b-feature_article">
-<a href="/articles/2014/03/12/onlineedu/" class="js-dh picture"><img alt="Елена Тихомирова" class="g-picture" height="310" src="http://icdn.lenta.ru/images/2014/03/12/15/20140312154208700/feature_8d8b02e9742e91c665faf34a6a332abe.jpg" style="max-width: 620px; width: 620px; height: 310px;" width="620" />
+<a href="<%= @feature.url %>" class="js-dh picture"><img alt="<%= @feature.title %>" class="g-picture" src="<%= @feature.enclosure_url %>" style="width: 620px; max-height: 310px;" widht="620" />
 </a>
 <div class="b-feature__wrap">
 <div class="g-date">
-<time>12 марта 2014</time>
+<time><%= @feature.published.day %> марта 2014</time>
 </div>
-<h1><a href="/articles/2014/03/12/onlineedu/">«Это игра в свою работу»</a></h1>
+<h1><a href="<%= @feature.url %>"><%= @feature.title %></a></h1>
 <div class="rightcol">
-<a href="/articles/2014/03/12/onlineedu/">Что такое электронное образование в бизнесе и как оно прижилось в России
+<a href="<%= @feature.url %>"><%= @feature.summary %>
 <span class="icons-sprite icons-arrow"></span>
 </a></div>
 </div>
@@ -160,7 +134,7 @@
   
   <div class="span4">
   <section class="b-longgrid-column">
-    <% @feed.entries[1..5].each do |article| %>
+    <% @feed.entries[0..5].each do |article| %>
 
     <% if article.enclosure_url %>
 
@@ -254,38 +228,6 @@
 <div class="span4">
 
 
-<div class="b-banner-sidebar-decorator js-advert"><script type="text/javascript">
-  <!--
-  if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
-  if (typeof(document.referrer) != 'undefined') {
-    if (typeof(afReferrer) == 'undefined') {
-      afReferrer = escape(document.referrer);
-    }
-  } else {
-    afReferrer = '';
-  }
-  var addate = new Date();
-  
-  var scrheight = '', scrwidth = '';
-  if (self.screen) {
-  scrwidth = screen.width;
-  scrheight = screen.height;
-  } else if (self.java) {
-  var jkit = java.awt.Toolkit.getDefaultToolkit();
-  var scrsize = jkit.getScreenSize();
-  scrwidth = scrsize.width;
-  scrheight = scrsize.height;
-  }
-  
-  var dl = escape(document.location);
-  var pr1 = Math.floor(Math.random() * 1000000);
-  
-  document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
-  document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
-  
-  AdFox_getCodeScript(1,pr1,'http://ads.adfox.ru/171817/prepareCode?p1=bluqt&amp;p2=emhk&amp;pct=c&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;puid1=&amp;puid2=&amp;puid3='+_montblanc.get('4i', '')+'&amp;puid4='+_montblanc.get('c6', '')+'&amp;puid5=&amp;puid6=ECONOMICS&amp;puid7=&amp;puid8=&amp;puid9=&amp;puid10=&amp;puid11=&amp;puid12=&amp;puid13=&amp;puid14=&amp;puid15=0&amp;puid16=&amp;puid17=&amp;puid18=main&amp;puid19=&amp;puid20=&amp;puid21=&amp;puid22='+_montblanc.get('y1', '')+'&amp;puid23=&amp;puid24=&amp;puid25=&amp;puid26=&amp;puid27=&amp;puid28=&amp;puid29=&amp;puid30=&amp;puid31=&amp;puid32=&amp;puid33='+_montblanc.get('bj', '')+'&amp;puid34=&amp;puid35=&amp;pdw=' + scrwidth + '&amp;pdh=' + scrheight + '&amp;dl='+dl+'&amp;pr1='+pr1);
-  // -->
-</script></div>
 
 
 
@@ -357,7 +299,7 @@
 <div class="span4">
 <div class="b-tabloid__item">
 <h2 class="bordered-title">
-<a href="/rubrics/economics/"><%= titles[row[0]]%></a>
+<a href="/rubrics/<%= row[0]%>/"><%= titles[row[0]]%></a>
 </h2>
 <% row[1].entries[0..6].each do |article|%>
 <% if article.enclosure_url%>
@@ -393,7 +335,7 @@
 <div class="span4">
 <div class="b-tabloid__item">
 <h2 class="bordered-title">
-<a href="/rubrics/economics/"><%= titles[row[0]]%></a>
+<a href="/rubrics/<%= row[0]%>/"><%= titles[row[0]]%></a>
 </h2>
 <% row[1].entries[0..6].each do |article|%>
 <% if article.enclosure_url%>
