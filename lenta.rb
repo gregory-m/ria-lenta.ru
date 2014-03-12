@@ -29,3 +29,7 @@ get '/rubrics/:name/' do
 
 end
 
+get '/info/posts/statement/' do
+  erb :statement
+end
+
