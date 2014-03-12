@@ -21,55 +21,58 @@
 <div class="g-application" id="root">
 
 
-<nav class="b-sidebar-menu">
-<div class="mini" id="menu-toggler">
-<div class="toggler icons-sprite icons-menu_toggler"></div>
-</div>
-<div class="origin b-menu-decorator" id="sidebar-menu">
-<div class="b-sidebar-menu__wrap">
-<ul>
-<li class="delimiter">
-<div></div>
-</li>
-<li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
-<li class="special"><a href="/rubrics/russia/" style="color: #ffffff">Россия</a></li>
-<li class="special"><a href="/rubrics/world/" style="color: #ffffff">Мир</a></li>
-<li class="special"><a href="/rubrics/ussr/" style="color: #ffffff">Бывший СССР</a></li>
-<li class="special"><a href="/rubrics/economics/" style="color: #ffffff">Экономика</a></li>
-<li class="special"><a href="/rubrics/science/" style="color: #ffffff">Наука и техника</a></li>
-<li class="special"><a href="/rubrics/sport/" style="color: #ffffff">Спорт</a></li>
-<li class="special"><a href="/rubrics/culture/" style="color: #ffffff">Культура</a></li>
-<li class="special"><a href="/rubrics/media/" style="color: #ffffff">Интернет и СМИ</a></li>
-<li class="special"><a href="/rubrics/life/" style="color: #ffffff">Из жизни</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="/rubrics/lentadoc/" style="color: #ffffff">Lenta.doc</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="http://parasochi.lenta.ru/" style="color: #ffffff">Игры без преград</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="http://motor.ru/" style="color: #959595">Мотор</a></li>
-<li><a href="http://dom.lenta.ru/" style="color: #959595">Дом</a></li>
-<li><a href="http://medportal.ru/mednovosti/" style="color: #959595">МедНовости</a></li>
-<li class="delimiter">
-<div></div>
-</li>
-<li><a href="/parts/text/" style="color: #959595">Статьи</a></li>
-<li><a href="/parts/photo/" style="color: #959595">Галереи</a></li>
-</ul>
-<div class="b-sidebar-menu__fuck icons-sprite icons-fuck"></div>
-<div class="b-sidebar-menu__under-fuck icons-sprite icons-under_fuck"></div>
-<form action="/search" class="search" method="GET">
-<input name="query" placeholder="Поиск" type="text">
-<i class="icons-sprite icons-search" onclick="$(this).closest('form').submit()"></i>
-</form>
-</div>
-</div>
-</nav>
+
+
+  <nav class="b-sidebar-menu">
+  <div class="mini" id="menu-toggler">
+  <div class="toggler icons-sprite icons-menu_toggler"></div>
+  </div>
+  <div class="origin b-menu-decorator" id="sidebar-menu">
+  <div class="b-sidebar-menu__wrap">
+  <ul>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
+
+  <% titles = {
+    'world' => "В Мире", 
+    'economy' => "Экономика", 
+    'science' => "Наука и техника", 
+    'sport' => "Спорт", 
+    'culture' => "Культура", 
+    'eco' => "Экология" 
+  }
+  %>
+  <% titles.each do |title, name| %>
+  <li class="special"><a href="/rubrics/<%= title %>/" style="color: #ffffff"><%= name%></a></li>
+  <% end %>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li><a href="http://parasochi.lenta.ru/" style="color: #ffffff">Игры без преград</a></li>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li><a href="http://motor.ru/" style="color: #959595">Мотор</a></li>
+  <li><a href="http://dom.lenta.ru/" style="color: #959595">Дом</a></li>
+  <li><a href="http://medportal.ru/mednovosti/" style="color: #959595">МедНовости</a></li>
+  <li class="delimiter">
+  <div></div>
+  </li>
+  <li><a href="/parts/text/" style="color: #959595">Статьи</a></li>
+  <li><a href="/parts/photo/" style="color: #959595">Галереи</a></li>
+  </ul>
+  <div class="b-sidebar-menu__fuck icons-sprite icons-fuck"></div>
+  <div class="b-sidebar-menu__under-fuck icons-sprite icons-under_fuck"></div>
+  <form action="/search" class="search" method="GET">
+  <input name="query" placeholder="Поиск" type="text">
+  <i class="icons-sprite icons-search" onclick="$(this).closest('form').submit()"></i>
+  </form>
+  </div>
+  </div>
+  </nav>
+
 
 <div class="b-up icons-sprite icons-up" id="up" title="наверх"></div>
 <section class="b-header-inner">
