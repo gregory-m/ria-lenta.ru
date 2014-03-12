@@ -7,6 +7,8 @@ gem 'rake'
 gem 'memcachier'
 gem 'dalli'
 
+gem 'unicorn'
+
 group :development do
   gem 'debugger'
 end
