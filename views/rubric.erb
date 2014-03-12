@@ -142,7 +142,7 @@
     <div class="info g-date">
     <a href="/rubrics/<%= params[:name]%>/" class="rubric"><%= titles[params[:name]]%></a>
     &mdash;
-    <span class="g-date"><span class="time">18:42</span> Сегодня</span>
+    <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %></span> Сегодня</span>
     </div>
     <a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; max-height: 200px;" />
     </a>
@@ -159,7 +159,7 @@
     <% else %>
     <div class="item">
     <div class="info g-date">
-    <span class="g-date"><span class="time">15:50</span> Сегодня</span>
+    <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %>0</span> Сегодня</span>
     </div>
     <div class="titles">
     <h3>
@@ -186,7 +186,7 @@
       <div class="info g-date">
       <a href="/rubrics/economy/" class="rubric"><%= titles[params[:name]]%></a>
       &mdash;
-      <span class="g-date"><span class="time">18:42</span> Сегодня</span>
+      <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %></span> Сегодня</span>
       </div>
       <a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
       </a>
@@ -203,7 +203,7 @@
       <% else %>
       <div class="item">
       <div class="info g-date">
-      <span class="g-date"><span class="time">15:50</span> Сегодня</span>
+      <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %></span> Сегодня</span>
       </div>
       <div class="titles">
       <h3>
@@ -242,7 +242,7 @@
   <div class="info g-date">
   <a href="/rubrics/<%= params[:name]%>/" class="rubric"><%= titles[params[:name]]%></a>
   &mdash;
-  <span class="g-date"><span class="time">18:42</span> Сегодня</span>
+  <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %></span> Сегодня</span>
   </div>
   <a href="<%= article.url %>" class="js-dh picture"><img alt="<%= article.title %>" class="g-picture" height="200" src="<%= article.enclosure_url %>" style="max-width: 300px; max-height: 200px;" />
   </a>
@@ -259,7 +259,7 @@
   <% else %>
   <div class="item">
   <div class="info g-date">
-  <span class="g-date"><span class="time">15:50</span> Сегодня</span>
+  <span class="g-date"><span class="time"><%= article.published.strftime("%H:%M") %></span> Сегодня</span>
   </div>
   <div class="titles">
   <h3>
