@@ -23,6 +23,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
+    rake (10.1.1)
     sax-machine (0.2.1)
       nokogiri (~> 1.6.0)
     sinatra (1.4.4)
@@ -39,4 +40,5 @@ DEPENDENCIES
   debugger
   feedzirra
   memcachier
+  rake
   sinatra
