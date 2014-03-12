@@ -183,36 +183,12 @@
 </div>
 <div class="span4">
 <div class="items">
-<div class="item">
-<time class="g-time" datetime=" 18:40, 12 марта 2014" title="12 марта 2014">18:40</time>
-
-<a href="/news/2014/03/12/bill/">Сенат США подготовил законопроект о санкциях против российских чиновников</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 17:55, 12 марта 2014" title="12 марта 2014">17:55</time>
-
-<a href="/news/2014/03/12/explosion/">На Манхэттене взорвался жилой дом</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 17:54, 12 марта 2014" title="12 марта 2014">17:54</time>
-
-<a href="/news/2014/03/12/legoida/">РПЦ заявила о неприкосновенности Библии</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 17:23, 12 марта 2014" title="12 марта 2014">17:23</time>
-
-<a href="/news/2014/03/12/biathlon/">Объявлен конкурс на замещение должностей тренеров сборных России по биатлону</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 17:25, 12 марта 2014" title="12 марта 2014">17:25</time>
-
-<a href="/news/2014/03/12/rainbow/">Астрономы впервые засняли внеземную радугу</a>
-</div>
-<div class="item">
-<time class="g-time" datetime=" 19:10, 12 марта 2014" title="12 марта 2014">19:10</time>
-
-<a href="/news/2014/03/12/neil/">Нил Янг за сутки собрал миллион долларов на новый сервис</a>
-</div>
+  <% @articles.[0..6].each do |article|%>
+    <div class="item">
+      <time class="g-time" datetime=" 18:40, 12 марта 2014" title="12 марта 2014">18:40</time>
+      <a href="/news/2014/03/12/bill/">Сенат США подготовил законопроект о санкциях против российских чиновников</a>
+    </div>
+  <% end%>
 </div>
 </div>
 </section>
