@@ -42,12 +42,12 @@
   <li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
 
   <% titles = {
-    'world' => "В Мире", 
-    'economy' => "Экономика", 
-    'science' => "Наука и техника", 
-    'sport' => "Спорт", 
-    'culture' => "Культура", 
-    'eco' => "Экология" 
+    'world' => "В Мире",
+    'economy' => "Экономика",
+    'science' => "Наука и техника",
+    'sport' => "Спорт",
+    'culture' => "Культура",
+    'eco' => "Экология"
   }
   %>
   <% titles.each do |title, name| %>
@@ -71,7 +71,7 @@
   </div>
   </div>
   </nav>
-  
+
 <div class="b-up icons-sprite icons-up" id="up" title="наверх"></div>
 <section class="b-header-main">
 <div class="g-layout">
@@ -133,7 +133,7 @@
 </div>
 <div class="span4">
 <div class="items">
-  
+
   <% @feeds["politics"].entries[0..6].each do |article|%>
     <div class="item">
       <time class="g-time" datetime="<%= article.published%>" title="12 марта 2014"><%= article.published.strftime("%H:%M") %></time>
@@ -148,7 +148,7 @@
 <div class="line"></div>
 </div>
 </section>
-<!-- 
+<!--
 <section class="b-feature b-feature_article">
 <a href="/articles/2014/03/12/mirimanova/" class="js-dh picture"><img alt="Рабочий устанавливает баннер в окрестностях Симферополя, 11 марта 2014 года" class="g-picture" height="310" src="http://icdn.lenta.ru/images/2014/03/12/15/20140312150755277/feature_033e090c6947a63e4cc905c017f48516.jpg" style="max-width: 620px; width: 620px; height: 310px;" width="620" />
 </a>
@@ -213,7 +213,7 @@
 
 <div class="span4">
   <section class="b-longgrid-column">
-  
+
 
     <% @feeds["economy"].entries[6..10].each do |article| %>
 
@@ -264,8 +264,7 @@
 <% @feeds["incidents"].entries[0..5].each do |article| %>
 
 <div class="item">
-<time class="g-time" datetime=" 12:11, 12 марта 2014" title="12 марта 2014">12:11</time>
-
+<time class="g-time"><%= article.published.strftime("%H:%M") %></time>
 <a href="<%= article.url%>"><%= article.title %></a>
 </div>
 <% end %>
@@ -324,12 +323,12 @@
 <div class="g-layout">
 <% rows = @feeds.to_a[1..6] %>
 <% titles = {
-  'world' => "В Мире", 
-  'economy' => "Экономика", 
-  'science' => "Наука и техника", 
-  'sport' => "Спорт", 
-  'culture' => "Культура", 
-  'eco' => "Экология" 
+  'world' => "В Мире",
+  'economy' => "Экономика",
+  'science' => "Наука и техника",
+  'sport' => "Спорт",
+  'culture' => "Культура",
+  'eco' => "Экология"
 }
 %>
 
