@@ -13,7 +13,5 @@ get '/' do
     @feeds[feed_name] = settings.cache.get(feed_name)
   end
 
-
-  puts @feeds
   erb :index
 end
