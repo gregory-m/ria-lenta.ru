@@ -168,25 +168,30 @@
 <div class="span8">
 <section class="row b-top7-for-main">
 <div class="span4">
+  <%
+    @feature = @articles.select{|a| a.enclosure_url}.first
+    @articles.delete(@feature)
+  %>
 <div class="first-item">
-<a href="/news/2014/03/12/goreslavsky/" class="js-dh"><img alt="Галина Тимченко" class="g-picture" height="200" src="http://icdn.lenta.ru/images/2014/03/12/16/20140312161145271/top7_e645d4e6cf24ee42c0efb8c92667e0a2.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+<a href="<%= @feature.url %>" class="js-dh"><img alt="Галина Тимченко" class="g-picture" height="200" src="<%= @feature.enclosure_url %>" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
 </a><h2>
-<time class="g-time" datetime=" 16:13, 12 марта 2014" title="12 марта 2014">16:13</time>
+<time class="g-time" datetime=" 16:13, 12 марта 2014" title="12 марта 2014"><%= @feature.published.strftime("%H:%M") %></time>
 
-<a href="/news/2014/03/12/goreslavsky/">В «Ленте.ру» сменился главный редактор</a>
+<a href="<%= @feature.url %>"><%= @feature.title %></a>
 </h2>
 <div class="announce">
-Главный редактор «Ленты.ру» Галина Тимченко оставит свою должность. Такое решение принял владелец объединенной компании «Афиша-Рамблер-SUP» Александр Мамут. Новым главным редактором назначен Алексей Гореславский. Изменения вступают в силу с 12 марта.
-<div class="more"><a href="/news/2014/03/12/goreslavsky/" class="js-dh">Читать полностью</a></div>
+<%= @feature.summary %>
+<div class="more"><a href="<%= @feature.url %>" class="js-dh">Читать полностью</a></div>
 </div>
 </div>
 </div>
 <div class="span4">
 <div class="items">
-  <% @articles.[0..6].each do |article|%>
+
+  <% @articles[0..6].each do |article|%>
     <div class="item">
-      <time class="g-time" datetime=" 18:40, 12 марта 2014" title="12 марта 2014">18:40</time>
-      <a href="/news/2014/03/12/bill/">Сенат США подготовил законопроект о санкциях против российских чиновников</a>
+      <time class="g-time" datetime="<%= article.published%>" title="12 марта 2014"><%= article.published.strftime("%H:%M") %></time>
+      <a href="<%= article.url %>"><%= article.title%></a>
     </div>
   <% end%>
 </div>
